@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { getVideoList } from "@/lib/videos";
 import { pusherServer } from "@/lib/pusher";
 
 export async function GET(request) {
