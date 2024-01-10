@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
         <TanstackProvider>
           <>
             <Header />
-            {children}
+            <div className="min-h-full">{children}</div>
             <Footer />
           </>
         </TanstackProvider>

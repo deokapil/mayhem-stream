@@ -11,6 +11,15 @@ export function Thumbnail({ video }) {
         fill
         className="absolute inset-0 left-0 top-0 rounded-2xl"
       />
+      {video.state == "live" ? (
+        <Image
+          src="/live.png"
+          alt="live"
+          width={40}
+          height={20}
+          className="absolute top-2 left-2 z-20"
+        />
+      ) : null}
     </div>
   );
 }

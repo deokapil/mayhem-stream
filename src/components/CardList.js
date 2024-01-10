@@ -3,8 +3,8 @@ import Title from "./Title";
 import { BsCollectionFill } from "react-icons/bs";
 import Link from "next/link";
 import { Thumbnail } from "./Tumbnail";
-import { VideoDescription, VideoTitle } from "./VideoComponents";
-
+import { UserImage, VideoDescription, VideoTitle } from "./VideoComponents";
+import moment from "moment";
 const CardList = ({ videos, title }) => {
   return (
     <>
@@ -17,11 +17,22 @@ const CardList = ({ videos, title }) => {
               className="flex flex-col items-start justify-between hover:bg-gray-900"
               key={video.id}
             >
-              <div className="relative w-full">
+              <div className="relative w-full pb-2">
                 <Thumbnail video={video} />
-                <div className=" max-w-xl ">
-                  <div className="items-top relative mt-4 flex gap-x-4 ">
-                    <VideoTitle title={video.title} limitHeight={true} />
+                <div className="max-w-xl">
+                  <div className="items-top relative mt-4 pl-2 flex gap-x-4 ">
+                    <UserImage />
+                    <div className="w-full">
+                      <VideoTitle title={video.title} limitHeight={true} />
+                      <div className="mt-1 flex max-h-6 items-start overflow-hidden text-sm">
+                        <p className=" text-gray-600">
+                          {video.schedule &&
+                            moment(video.schedule).format(
+                              "MMMM Do YYYY, h:mm a"
+                            )}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

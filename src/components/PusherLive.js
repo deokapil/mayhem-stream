@@ -5,19 +5,19 @@ import { pusherClient } from "@/lib/pusher";
 import NotPlaying from "./NotPlaying";
 
 const PusherLive = ({ video, permission }) => {
-  const [connected, setConnected] = useState(false);
-  useEffect(() => {
-    if (permission.canConnect) {
-      pusherClient.subscribe(`channel-video-${video.id}`);
-      setConnected(true);
-    }
-    return () => {
-      if (connected) {
-        pusherClient.unsubscribe(`channel-video-${video.id}`);
-        pusherClient.disconnect();
-      }
-    };
-  }, []);
+  const [connected, setConnected] = useState(true);
+  // useEffect(() => {
+  //   if (permission.canConnect) {
+  //     pusherClient.subscribe(`channel-video-${video.id}`);
+  //     setConnected(true);
+  //   }
+  //   return () => {
+  //     if (connected) {
+  //       pusherClient.unsubscribe(`channel-video-${video.id}`);
+  //       pusherClient.disconnect();
+  //     }
+  //   };
+  // }, []);
 
   return (
     <>

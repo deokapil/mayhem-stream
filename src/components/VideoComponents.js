@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export function VideoTitle({ title, limitHeight, limitSize }) {
   return (
     <h1
@@ -12,8 +14,21 @@ export function VideoTitle({ title, limitHeight, limitSize }) {
 
 export function VideoDescription({ description }) {
   return (
-    <p className="mt-2 h-5 max-w-md overflow-hidden text-sm leading-6 text-gray-600">
+    <p className="mt-2 h-5 max-w-md text-md leading-6 text-gray-50">
       {description}
     </p>
+  );
+}
+
+export function UserImage({ image, className = "" }) {
+  return (
+    <div className={`relative h-10 w-10 ${className}`}>
+      <Image
+        src={image || "/MM_logo.png"}
+        alt=""
+        className="absolute rounded-full"
+        fill
+      />
+    </div>
   );
 }

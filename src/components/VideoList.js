@@ -3,14 +3,16 @@ import CardList from "./CardList";
 import Hero from "./Hero";
 
 const VideoList = ({ videoList }) => {
-  const videosLive = videoList.filter((video) => video.state == "live");
-  const videosPlaying = videoList.filter((video) => video.state == "playing");
+  const videosFeatured = videoList.filter((video) => video.is_featured);
+  const videosPlaying = videoList.filter(
+    (video) => video.state == "playing" || video.state == "live"
+  );
   const videosScheduled = videoList.filter(
-    (video) => video.state == "scheduled"
+    (video) => video.state == "upcoming"
   );
   return (
     <>
-      <Hero videoList={videosLive} />
+      {videosFeatured.length > 0 ? <Hero videoList={videosFeatured} /> : null}
       <div>
         {videosPlaying && (
           <CardList videos={videosPlaying} title="Playing Now" />

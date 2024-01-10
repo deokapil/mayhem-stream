@@ -9,16 +9,17 @@ export const VideoJsPlayer = ({ url, videoId }) => {
   const playerRef = React.useRef(null);
   //   const {options, onReady} = props;
 
+  const url1 = "http://localhost:8088/hls/test.m3u8";
   const router = useRouter();
   React.useEffect(() => {
     const options = {
       autoplay: true,
       controls: true,
       responsive: true,
-      fluid: true,
+      // aspectRatio: "16:9",
       sources: [
         {
-          src: `${url}`,
+          src: `${url1}`,
           type: "application/x-mpegURL",
         },
       ],
@@ -29,7 +30,7 @@ export const VideoJsPlayer = ({ url, videoId }) => {
       // The Video.js player needs to be _inside_ the component el for React 18 Strict Mode.
       const videoElement = document.createElement("video-js");
 
-      videoElement.classList.add("vjs-big-play-centered");
+      // videoElement.classList.add("vjs-layout-medium");
       videoRef.current.appendChild(videoElement);
       const player = (playerRef.current = videojs(videoElement, options, () => {
         videojs.log("player is ready");
