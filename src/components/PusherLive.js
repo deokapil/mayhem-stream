@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
-import VideoJsPlayer from "./VideoJsPlayer";
 import { pusherClient } from "@/lib/pusher";
 import NotPlaying from "./NotPlaying";
+import VideoPlayer from "./VideoPlayer";
 
 const PusherLive = ({ video, permission }) => {
   const [connected, setConnected] = useState(true);
@@ -22,7 +22,7 @@ const PusherLive = ({ video, permission }) => {
   return (
     <>
       {connected ? (
-        <VideoJsPlayer url={video.video_url} videoId={video.id} />
+        <VideoPlayer video={video} />
       ) : (
         <NotPlaying message="Too many connections" />
       )}

@@ -10,13 +10,13 @@ const VideoPlayer = ({ video }) => {
       setIsPlayerAvailable(true);
     }
   }, []);
-
+  const videoUrl = video.status == "live" ? video.video_url : video.video_cdn;
   // const url1 = "http://localhost:8088/hls/test.m3u8";
   return (
     <div className="py-4">
       {isPlayerAvailable && (
         <ReactPlayer
-          url={video.video_cdn}
+          url={videoUrl}
           // url={url1}
           controls={true}
           style={{ borderRadius: "1 rem", overflow: "hidden" }}
