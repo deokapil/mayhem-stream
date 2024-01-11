@@ -9,7 +9,6 @@ export const VideoJsPlayer = ({ url, videoId }) => {
   const playerRef = React.useRef(null);
   //   const {options, onReady} = props;
 
-  const url1 = "http://localhost:8088/hls/test.m3u8";
   const router = useRouter();
   React.useEffect(() => {
     const options = {
@@ -19,7 +18,7 @@ export const VideoJsPlayer = ({ url, videoId }) => {
       // aspectRatio: "16:9",
       sources: [
         {
-          src: `${url1}`,
+          src: `${url}`,
           type: "application/x-mpegURL",
         },
       ],
