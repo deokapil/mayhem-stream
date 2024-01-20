@@ -10,8 +10,7 @@ const VideoPlayer = ({ video }) => {
       setIsPlayerAvailable(true);
     }
   }, []);
-  const videoUrl = video.status == "live" ? video.video_url : video.video_cdn;
-  // const url1 = "http://localhost:8088/hls/test.m3u8";
+  const videoUrl = video.state == "live" ? video.video_url : video.video_cdn;
   return (
     <div className="py-4">
       {isPlayerAvailable && (
