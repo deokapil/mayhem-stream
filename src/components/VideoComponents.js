@@ -14,7 +14,7 @@ export function VideoTitle({ title, limitHeight, limitSize }) {
 
 export function VideoDescription({ description }) {
   return (
-    <p className="mt-2 h-5 max-w-md text-md leading-6 text-gray-50">
+    <p className="mt-2 h-5 max-w-md text-2xl leading-6 text-gray-50">
       {description}
     </p>
   );

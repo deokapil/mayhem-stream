@@ -13,14 +13,14 @@ const VideoList = ({ videoList }) => {
   return (
     <>
       {videosFeatured.length > 0 ? <Hero videoList={videosFeatured} /> : null}
-      <div>
+      <div className="mt-20">
         {videosPlaying && (
-          <CardList videos={videosPlaying} title="Playing Now" />
+          <CardList videos={videosPlaying} title="Watch & Play Now ..." />
         )}
       </div>
-      <div>
+      <div className="mt-20">
         {videosScheduled && (
-          <CardList videos={videosScheduled} title="Comming up later ..." />
+          <CardList videos={videosScheduled} title="Future Broadcasts ..." />
         )}
       </div>
     </>
