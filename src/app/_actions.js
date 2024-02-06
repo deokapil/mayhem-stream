@@ -7,6 +7,7 @@ export async function getVideoList() {
     next: { cache: "no-store", revalidate: 0 },
   });
   if (!response.ok) throw new Error("Failed to fetch video listing");
+
   return response.json();
 }
 
